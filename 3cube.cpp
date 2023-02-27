@@ -5,11 +5,11 @@ GLfloat d=0;
 char a;
 void Spin()
 {
-d = d + 1;
+d = d + 0.01;
 if(d > 360)
 d = 0;
 glutPostRedisplay();
-} 
+}
 void Face(GLfloat A[3],GLfloat B[3],GLfloat C[3],GLfloat D[3])
 {
 glBegin(GL_QUADS);
@@ -19,8 +19,8 @@ glVertex3fv(C);
 glVertex3fv(D);
 glEnd();
 }
-void Cube(GLfloat P1[3], GLfloat P2[3], GLfloat P3[3], GLfloat P4[3], GLfloat, P5[3],
-GLfloat P6[3], GLfloat P7[3], GLfloat P8[3])
+void Cube(GLfloat P1[], GLfloat P2[], GLfloat P3[], GLfloat P4[], GLfloat P5[],
+GLfloat P6[], GLfloat P7[], GLfloat P8[])
 {
 glColor3f(1,0,0);
 Face(P1,P2,P3,P4);
@@ -34,7 +34,7 @@ glColor3f(1,0,1);
 Face(P1,P2,P6,P5);
 glColor3f(0,1,1);
 Face(P4,P3,P7,P8);
-} 
+}
 void Draw ()
 {
 GLfloat V[8][3] = {
@@ -80,7 +80,7 @@ nV[i][2] = -V[i][0]*sin(r) + V[i][2]*cos(r);
 }
 Cube(nV[0],nV[1],nV[2],nV[3],nV[4],nV[5],nV[6],nV[7]);
 glutSwapBuffers();
-  }
+}
 int main(int argC,char *argV[])
 {
 printf("\nEnter the Axis of Rotation : ");
